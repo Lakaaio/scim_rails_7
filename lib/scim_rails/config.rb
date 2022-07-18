@@ -34,12 +34,14 @@ module ScimRails
       :user_attributes,
       :user_deprovision_method,
       :user_reprovision_method,
+      :default_user_values,
       :user_schema
 
     def initialize
       @basic_auth_model = "Company"
       @scim_users_list_order = :id
       @scim_users_model = "User"
+      @default_user_values = {}
       @signing_algorithm = ALGO_NONE
       @user_schema = {}
       @user_attributes = []

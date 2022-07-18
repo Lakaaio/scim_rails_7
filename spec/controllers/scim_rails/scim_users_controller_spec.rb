@@ -366,6 +366,27 @@ RSpec.describe ScimRails::ScimUsersController, type: :controller do
         user = company.users.first
         expect(user.archived?).to eq true
       end
+
+      it "uses default values if default values exist" do
+        allow(ScimRails.config).to receive(:default_user_values).and_return({ custom_field: "CustomValue" })
+
+        post :create, params: {
+          name: {
+            givenName: "New",
+            familyName: "User"
+          },
+          emails: [
+            {
+              value: "new@example.com"
+            }
+          ]
+        }, as: :json
+
+        expect(response.status).to eq 201
+        expect(company.users.count).to eq 1
+        user = company.users.first
+        expect(user.custom_field).to eq "CustomValue"
+      end
     end
   end
 
