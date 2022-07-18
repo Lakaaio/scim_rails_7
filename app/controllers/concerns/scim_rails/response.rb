@@ -11,7 +11,7 @@ module ScimRails
 
     def json_scim_response(object:, status: :ok, counts: nil)
       
-      binding.pry
+      # binding.pry
       
       pp "################################################"
       pp "################################################"
@@ -29,7 +29,7 @@ module ScimRails
       pp "################################################"
       pp "################################################"
 
-      case params[:action]
+      return case params[:action]
       when "index"
         render \
           json: list_response(object, counts),
