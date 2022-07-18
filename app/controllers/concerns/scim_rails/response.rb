@@ -9,39 +9,19 @@ module ScimRails
         content_type: CONTENT_TYPE
     end
 
-    def json_scim_response(object:, test:, status: :ok, counts: nil)
-      return 1 / 0
-      
-      # # binding.pry
-      
-      # pp "################################################"
-      # pp "################################################"
-      # pp "################################################"
-      # pp "################################################"
-      # pp "################################################"
-      # pp "################################################"
-      # pp "################################################"
-      # pp params[:action]
-      # pp "################################################"
-      # pp "################################################"
-      # pp "################################################"
-      # pp "################################################"
-      # pp "################################################"
-      # pp "################################################"
-      # pp "################################################"
-
-      # return case params[:action]
-      # when "index"
-      #   render \
-      #     json: list_response(object, counts),
-      #     status: status,
-      #     content_type: CONTENT_TYPE
-      # when "show", "create", "put_update", "patch_update", "post"
-      #   render \
-      #     json: user_response(object),
-      #     status: status,
-      #     content_type: CONTENT_TYPE
-      # end
+    def json_scim_response(object:, status: :ok, counts: nil)
+      case params[:action]
+      when "index"
+        render \
+          json: list_response(object, counts),
+          status: status,
+          content_type: CONTENT_TYPE
+      when "show", "create", "put_update", "patch_update", "post"
+        render \
+          json: user_response(object),
+          status: status,
+          content_type: CONTENT_TYPE
+      end
     end
 
     private
