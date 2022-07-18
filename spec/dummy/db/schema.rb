@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20181206184313) do
     t.string   "last_name",   null: false
     t.string   "email",       null: false
     t.integer  "company_id"
+    t.string   "custom_field"
     t.datetime "archived_at"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

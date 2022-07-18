@@ -65,7 +65,7 @@ module ScimRails
     private
 
     def permitted_user_params
-      ScimRails.config.mutable_user_attributes.each.with_object({}) do |attribute, hash|
+      ScimRails.config.mutable_user_attributes.each.with_object(ScimRails.config.default_user_values) do |attribute, hash|
         hash[attribute] = find_value_for(attribute)
       end
     end

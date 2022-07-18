@@ -6,6 +6,7 @@ class CreateUsers < ActiveRecord::Migration[5.0]
       t.string :email, null: false
 
       t.integer :company_id
+      t.string :custom_field
 
       t.timestamp :archived_at
 
