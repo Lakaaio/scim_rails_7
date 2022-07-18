@@ -16,7 +16,7 @@ module ScimRails
           json: list_response(object, counts),
           status: status,
           content_type: CONTENT_TYPE
-      when "show", "create", "put_update", "patch_update"
+      when "show", "create", "put_update", "patch_update", "post"
         render \
           json: user_response(object),
           status: status,
