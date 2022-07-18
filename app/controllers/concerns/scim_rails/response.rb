@@ -9,7 +9,7 @@ module ScimRails
         content_type: CONTENT_TYPE
     end
 
-    def json_scim_response(object:, status: :ok, counts: nil)
+    def json_scim_response(object:, test:, status: :ok, counts: nil)
       return 1 / 0
       
       # # binding.pry
